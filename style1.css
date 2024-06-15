@@ -1,0 +1,165 @@
+:root {
+    --orange: #e3881b;
+    --darkBt: #858a99;
+    --BG: rgb(255, 255, 255);
+    --operation_color : #000000;
+    --num_color : #151617;
+}
+
+body {
+    background-color: #31373e;
+    transition: 0.3s;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    transition: 0.3s;
+}
+
+.buttons input {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 0;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -7px 8px 0px inset,
+        rgba(0, 0, 0, 0.15) 0px -11px 10px 0px inset,
+        rgba(0, 0, 0, 0.1) 0px -24px 13px 0px inset,
+        rgba(0, 0, 0, 0.06) 0px 1px 0.5px, rgba(0, 0, 0, 0.09) 0px 2px 1px,
+        rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px,
+        rgba(0, 0, 0, 0.09) 0px 16px 8px;
+}
+
+.buttons input:active {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 10px 20px -4px inset,
+            rgba(0, 0, 0, 0.3) 0px 6px 12px -6px inset;
+
+}
+
+.container {
+    width: 250px;
+    height: 500px;
+    padding: 15px 8px;
+    background-color: var(--BG);
+    margin: 50px auto;
+    border-radius: 40px;
+    position: relative;
+    box-shadow: 0 0 8px 12px rgba(0, 0, 0, 0.17);
+}
+
+.container .result {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: end;
+    gap: 1px;
+    padding: 15px 10px;
+    height: 35%;
+    overflow: auto;
+}
+
+.container .result .operation {
+    font-size: 15px;
+    color: var(--operation_color) !important;
+    opacity: 0.5;
+    overflow: auto;
+}
+
+.container .result .final-result{
+    font-size: 40px;
+    color: var(--operation_color);
+    font-weight: 100;
+    overflow: auto;
+}
+
+.container .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    justify-content: center;
+}
+
+.orange {
+    background-color: var(--orange);
+    box-shadow: inset 2px 2px 0 #dc800f, -2px -2px 0 #a25e0b inset;
+}
+
+.num {
+    background-color: var(--BG);
+    box-shadow: inset 2px 2px 0 #151617, inset -2px -2px 0 #191b1d ;
+    color: var(--num_color) !important;
+}
+
+.operator {
+    background-color: var(--darkBt);
+    box-shadow: inset 2px 2px 0 #31373e, inset -2px -2px 0 rgb(53, 58, 63) ;
+}
+
+.buttons .zero {
+    grid-column: span 2;
+    width: 110px;
+}
+
+.change_mode {
+    position: absolute;
+    top: 2px;
+    left: 20px;
+}
+.change_mode label {
+    width: 100px;
+    height: 40px;
+    position: relative;
+    display: block;
+    transition: 0.3s;
+    background-color: #ebebeb;
+    border-radius: 30px;
+    box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.26), inset 0 -5px 15px rgba(255,255,255,0.4);
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
+    cursor: pointer;
+}
+
+.change_mode label:after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(180deg,#ffcc89,#d8860b);
+    transition: 0.3s;
+}
+.change_mode input {
+    visibility: hidden;
+}
+.change_mode input:checked + label {
+    background-color: #242424;
+}
+.change_mode input:checked + label:after{
+    transform: translateX(100%);
+    background: linear-gradient(180deg,#777,#3a3a3a);
+    left: calc(62px - 35px);
+}
+svg {
+    position: absolute;
+    top: 5px;
+    z-index: 9999;
+}
+.moon {
+    right: 5px;
+    fill: #fff;
+}
+.sun {
+    left: 5px;
+    fill: #fff;
+}
